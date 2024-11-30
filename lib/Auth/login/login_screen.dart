@@ -2,19 +2,26 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sprint1/Custom_widgets/Text_field_Widget.dart';
-import 'package:sprint1/Register/register_screen.dart';
+import 'package:sprint1/Auth/Register/register_screen.dart';
 import 'package:sprint1/constants/constant.dart';
-import 'package:sprint1/login/forget_password.dart';
+import 'package:sprint1/Auth/login/forget_password.dart';
+import 'package:sprint1/home/home_screen.dart';
 
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
 
-  static const String routname = 'login_screen';         // routeName of login screen:
-  
+  static const String routname = 'login_screen';                   // routeName of login screen:
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+
   final email = TextEditingController();
   final passsword = TextEditingController();
-  final _formKey = GlobalKey<FormState>();      // key of form Widget:
 
+  final _formKey = GlobalKey<FormState>();            // key of form Widget:
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +35,12 @@ class LoginScreen extends StatelessWidget {
                 fontSize: 24,
                 fontWeight: FontWeight.bold),
           ),
+
+
         ),
+
+    
+
         body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             child: Form(
@@ -68,7 +80,9 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(height: 20,),
                     
                     TextFieldWidget(controller: passsword, label: 'Password', hint: 'Enter Your Password',
-                     isEmail: true,obscureText: true,),
+                     isPassword: true,obscureText: true,
+                    // suffixIcon: ,
+                     ),
                   
                      const SizedBox(height: 15,),                  
                   
@@ -77,7 +91,7 @@ class LoginScreen extends StatelessWidget {
                       InkWell(
                         child: InkWell(
                           onTap: () {
-                            Navigator.pushNamed(context,forgetpassword.routname);               // Navigation:
+                            Navigator.pushNamed(context,ForgetPassordScreen.routname);               // Navigation:
                           },
                           child: const Text("Forget Password",
                               style: TextStyle(
@@ -89,9 +103,9 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ],
                     ),
-
+                  
                     const SizedBox(height:18 ,),
-
+                  
                     Container(
                       width: double.infinity,
                       child: ElevatedButton(
@@ -107,17 +121,24 @@ class LoginScreen extends StatelessWidget {
                                 BorderRadius.all(Radius.circular(20)),
                           ),
                         ),
-                        child: const Text(
-                          'Login',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Constant.whiteColor,
-                            fontSize: 20,
+                        child: InkWell(
+                          onTap: () {
+                            
+                  
+                  
+                          },
+                          child: const Text(
+                            'Login',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Constant.whiteColor,
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                         ),
                     ),
-
+                  
                     const SizedBox(height: 25,),
                   
                     Row(
@@ -130,7 +151,7 @@ class LoginScreen extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                           ),
                         ),
-
+                  
                         const SizedBox(width: 15,),
                         InkWell(
                           onTap: () {
@@ -144,11 +165,11 @@ class LoginScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-
+                  
                         const SizedBox(height: 15,),
                       ],
                     ),
-
+                  
                     const SizedBox(  height: 25, ),
                     const Center(
                       child:  Text(
@@ -158,7 +179,7 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-
+                  
                     const SizedBox( height: 20,  ),
                      Row(
                      mainAxisAlignment: MainAxisAlignment.center,
@@ -168,12 +189,12 @@ class LoginScreen extends StatelessWidget {
                         
                       },
                       
-                 icon: FaIcon(FontAwesomeIcons.google),      // add Google Icon:
+                                   icon: const FaIcon(FontAwesomeIcons.google),      // add Google Icon:
                       iconSize: 30,
                       color: Constant.mainColor,
                      // color: Colors.teal,
                     ),
-            
+                              
                    const Text('Google',
                    style: TextStyle(
                     color:Constant.blackColor ,
@@ -181,10 +202,10 @@ class LoginScreen extends StatelessWidget {
                    ),
                    
                    ),
-            
-                   const SizedBox(width:40 ,),
-            
-                   IconButton(
+                              
+                   //const SizedBox(width:40 ,),
+                              
+                  /* IconButton(
                       onPressed: () {
                         
                       },
@@ -194,19 +215,20 @@ class LoginScreen extends StatelessWidget {
                      color: Constant.mainColor,
                      // color: Colors.teal,
                     ),
-            
+                              
                    const Text('Facebook',
                    style: TextStyle(
                     color: Constant.blackColor,
                     fontWeight: FontWeight.w400,
                    ),
                    
-                   ),
-            
+                   ),*/
+                              
                   ],
-                ),
-                ],
-                 ),
+                                  ),
+                  
+                                  ],
+                                   ),
                 ),
                 ),
                ),
@@ -215,7 +237,9 @@ class LoginScreen extends StatelessWidget {
 
   void validateForm() {
     if (_formKey.currentState!.validate()) {
-
+    
+    // logoin:
+     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
 
 
     }

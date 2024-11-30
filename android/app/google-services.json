@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "680987730296",
+    "project_id": "innovaapp-c4c1a",
+    "storage_bucket": "innovaapp-c4c1a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:680987730296:android:e886575256346ddf74288d",
+        "android_client_info": {
+          "package_name": "com.example.sprint1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQiFN32qEr44WRvn7NXDeutdLYPjvvrm8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
